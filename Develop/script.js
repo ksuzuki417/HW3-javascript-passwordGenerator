@@ -1,10 +1,10 @@
 //create prompts
 var promptNumbers = prompt("Choose a number of character between 8 and 128")
   if (promptNumbers >= 8 && promptNumbers <= 128){
-    alert ("You want "+ promptNumber + "letters")
+    alert ("You want " + promptNumbers + " letters")
   }
   else { alert ("Please choose between 8 and 128")
-}
+  }
 var confirmLowercase = confirm("Would you like lowercase?")
   if (confirmLowercase === true){
     alert("You want lowercase");
@@ -68,19 +68,19 @@ function setLength (){
 
 }
 
-function generatePassword(lower, upper,number, character){
+function generatePassword(lower, upper, number, character){
   password = "";
-  if (lower === true) {
-    password += getRandomLower
+  if (confirmLowercase === true) {
+    password += lower
   }
-  if (upper === true) {
-    password += getRandomUpper
+  if (confirmUppercase === true) {
+    password += upper
   }
-  if(number === true) {
-    password += getRandomNumber
+  if(confirmNumber === true) {
+    password += number
   }
-  if (character === true) {
-    password += getRandomCharacter
+  if (confirmSpecial === true) {
+    password += character
   }
 
 console.log(generatePassword)
