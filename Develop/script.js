@@ -1,5 +1,39 @@
-//create prompts
-var promptNumbers = prompt("Choose a number of character between 8 and 128")
+//set of functions
+var randomFunction = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  character: getRandomCharacter,
+}
+
+//generate random lowercase
+function getRandomLower(){
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+//generate random uppercase
+function getRandomUpper(){
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+//generate random number
+function getRandomNumber(){
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+//generate random character
+var character = "!@#$%^&*"
+function getRandomCharacter(){
+  return character[Math.floor(Math.random() * character.length)];
+}
+
+
+//set number of characters
+
+
+function generatePassword(lower, upper, number, character){
+  //create prompts
+  var promptNumbers = prompt("Choose a number of character between 8 and 128")
   if (promptNumbers >= 8 && promptNumbers <= 128){
     alert ("You want " + promptNumbers + " letters")
   }
@@ -31,42 +65,6 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
     else {alert("You do not want special characters")
   }
 
-  console.log(confirmSpecial)
-
-var randomFunction = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  character: getRandomCharacter,
-}
-
-
-//generate random lowercase
-function getRandomLower(){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-//generate random uppercase
-function getRandomUpper(){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-
-//generate random number
-function getRandomNumber(){
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-//generate random character
-var character = "!@#$%^&*"
-function getRandomCharacter(){
-  return character[Math.floor(Math.random() * character.length)];
-}
-
-
-//set number of characters
-
-
-function generatePassword(lower, upper, number, character){
   password = "";
   if (confirmLowercase === true) {
     password += lower
@@ -92,7 +90,9 @@ console.log(randomLength)
 }
   
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");{
+  
+}
 
 // Write password to the #password input
 function writePassword() {
