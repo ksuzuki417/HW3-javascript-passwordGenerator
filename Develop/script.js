@@ -31,7 +31,7 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
     else {alert("You do not want special characters")
   }
 
-//set number of characters
+  console.log(confirmSpecial)
 
 var randomFunction = {
   lower: getRandomLower,
@@ -83,8 +83,9 @@ function generatePassword(lower, upper, number, character){
 
   for (var i = 1; i <= promptNumbers; i++) {
     var randomLength = randomFunction[Math.floor(Math.random() * randomFunction.length)]
+    passsword = password + randomLength;
   }
-
+console.log(randomLength)
 
 
   return password
