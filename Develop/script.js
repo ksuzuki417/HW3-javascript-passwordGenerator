@@ -11,37 +11,37 @@ var number = ["1","2","3","4","5","6","7","8","9","0"];
 var symbol = ["~","!","@","#","$","%","^","&","*","(",")","?"]
 
 //generate random lowercase
-function getRandom(lower) {
+function getRandomLower() {
   var index = Math.floor(Math.random() * lower.length);
   var randomElem = lower[index];
   return randomElem;
 }
 
-console.log(getRandom(lower));
+console.log(getRandomLower());
 
 //generate random uppercase
-function getRandom(upper) {
+function getRandomUpper() {
   var index = Math.floor(Math.random() * upper.length);
   var randomElem = upper[index];
   return randomElem;
 }
-console.log(getRandom(upper));
+console.log(getRandomUpper());
 
 //generate random number
-function getRandom(number) {
+function getRandomNumber() {
   var index = Math.floor(Math.random() * number.length);
   var randomElem = number[index];
   return randomElem;
 }
-  console.log(getRandom(number));
+  console.log(getRandomNumber());
 
 //generate random character
-function getRandom(symbol) {
+function getRandomSymbol() {
   var index = Math.floor(Math.random() * symbol.length);
   var randomElem = symbol[index];
   return randomElem;
 }
-  console.log(getRandom(symbol));
+  console.log(getRandomSymbol());
 
 //set number of characters
 
@@ -89,16 +89,16 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
 
   var password = [];
   if (confirmLowercase === true) {
-    password.push(getRandom(lower));
+    password.push(getRandomLower);
   }
   if (confirmUppercase === true) {
-    password.push(getRandom(upper));
+    password.push(getRandomUpper);
   }
   if(confirmNumber === true) {
-    password.push(getRandom(number));
+    password.push(getRandomNumber);
   }
   if (confirmSpecial === true) {
-    password.push(getRandom(character));
+    password.push(getRandomSymbol);
   }
 
   for (var i = 0; i <= length.length; i++) {
