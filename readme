@@ -1,0 +1,4 @@
+Javascript Password Generator assignment.
+an assignment was to create series of questions to set password criteria. Then create an application to generate a password based on the criteria.
+I was able to generate password however, I could not make it to have the correct character length. I believe my code to set the password with the selected lengths was not correct.
+I had several assistant from AskBCS. They were all helpful, but I was not able to get it right.
