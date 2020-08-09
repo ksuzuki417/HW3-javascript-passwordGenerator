@@ -1,10 +1,10 @@
 //set of functions
-//var randomFunction = {
-  //lower : getRandomLower,
-  //upper : getRandomUpper,
-  //number : getRandomNumber,
-  //character : getRandomCharacter,
-
+var randomFunction = {
+  lower : getRandomLower,
+  upper : getRandomUpper,
+  number : getRandomNumber,
+  symbol : getRandomSymbol,
+}
 var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","Y","z"];
 var upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var number = ["1","2","3","4","5","6","7","8","9","0"];
@@ -46,7 +46,7 @@ function getRandomSymbol() {
 //set number of characters
 
 
-function generatePassword(lower, upper, number, symbol, length){
+function generatePassword(lower, upper, number, symbol, randomLength){
   //create prompts
   var promptNumbers = prompt("Choose a number of character between 8 and 128")
   if (promptNumbers >= 8 && promptNumbers <= 128){
@@ -56,10 +56,10 @@ function generatePassword(lower, upper, number, symbol, length){
   return
   }
   //change string "promptNumbers" to a value
-  var length = +promptNumbers;
+  var randomLength = +promptNumbers;
 
-  console.log(length)
-  console.log(typeof length);
+  console.log(randomLength)
+  console.log(typeof randomLength);
 
 var confirmLowercase = confirm("Would you like lowercase?")
   if (confirmLowercase === true){
@@ -89,24 +89,26 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
 
   var password = [];
   if (confirmLowercase === true) {
-    password.push(getRandomLower);
+    password.push(getRandomLower());
   }
   if (confirmUppercase === true) {
-    password.push(getRandomUpper);
+    password.push(getRandomUpper());
   }
   if(confirmNumber === true) {
-    password.push(getRandomNumber);
+    password.push(getRandomNumber());
   }
   if (confirmSpecial === true) {
-    password.push(getRandomSymbol);
+    password.push(getRandomSymbol());
   }
 
-  for (var i = 0; i <= length.length; i++) {
+  for (var i = 0; i <= randomLength.length; i++) {
     var randomLength = randomFunction[Math.floor(Math.random() * randomFunction.length)]
-    passsword = password + randomLength;
+    password = password + randomLength;
   }
-console.log(password);
+  
+console.log(randomLength);
 
+console.log(password)
 
   return password
 }
