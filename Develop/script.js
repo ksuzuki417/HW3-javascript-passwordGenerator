@@ -1,42 +1,52 @@
 //set of functions
-var randomFunction = {
-  lower : getRandomLower,
-  upper : getRandomUpper,
-  number : getRandomNumber,
-  character : getRandomCharacter,
-}
+//var randomFunction = {
+  //lower : getRandomLower,
+  //upper : getRandomUpper,
+  //number : getRandomNumber,
+  //character : getRandomCharacter,
 
+var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","Y","z"];
+var upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var number = ["1","2","3","4","5","6","7","8","9","0"];
+var symbol = ["~","!","@","#","$","%","^","&","*","(",")","?"]
 
 //generate random lowercase
-  function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  }
+function getRandom(lower) {
+  var index = Math.floor(Math.random() * lower.length);
+  var randomElem = lower[index];
+  return randomElem;
+}
 
-  console.log(getRandomLower());
+console.log(getRandom(lower));
 
 //generate random uppercase
-  function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-    }
-  console.log(getRandomUpper());
+function getRandom(upper) {
+  var index = Math.floor(Math.random() * upper.length);
+  var randomElem = upper[index];
+  return randomElem;
+}
+console.log(getRandom(upper));
 
 //generate random number
-  function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-    }
-  console.log(getRandomNumber());
+function getRandom(number) {
+  var index = Math.floor(Math.random() * number.length);
+  var randomElem = number[index];
+  return randomElem;
+}
+  console.log(getRandom(number));
 
 //generate random character
-  var character = "!@#$%^&*"
-  function getRandomCharacter() {
-    return character[Math.floor(Math.random() * character.length)];
-  }
-  console.log(getRandomCharacter());
+function getRandom(symbol) {
+  var index = Math.floor(Math.random() * symbol.length);
+  var randomElem = symbol[index];
+  return randomElem;
+}
+  console.log(getRandom(symbol));
 
 //set number of characters
 
 
-function generatePassword(lower, upper, number, character){
+function generatePassword(lower, upper, number, symbol, length){
   //create prompts
   var promptNumbers = prompt("Choose a number of character between 8 and 128")
   if (promptNumbers >= 8 && promptNumbers <= 128){
@@ -45,8 +55,11 @@ function generatePassword(lower, upper, number, character){
   else { alert ("Please choose between 8 and 128");
   return
   }
+  //change string "promptNumbers" to a value
+  var length = +promptNumbers;
 
-  console.log(promptNumbers);
+  console.log(length)
+  console.log(typeof length);
 
 var confirmLowercase = confirm("Would you like lowercase?")
   if (confirmLowercase === true){
@@ -74,25 +87,25 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
     else {alert("You do not want special characters")
   }
 
-  password = "";
+  var password = [];
   if (confirmLowercase === true) {
-    password.concat(lower)
+    password.push(getRandom(lower));
   }
   if (confirmUppercase === true) {
-    password.concat(upper)
+    password.push(getRandom(upper));
   }
   if(confirmNumber === true) {
-    password.concat(number)
+    password.push(getRandom(number));
   }
   if (confirmSpecial === true) {
-    password.concat(character)
+    password.push(getRandom(character));
   }
 
-  for (var i = 0; i <= promptNumbers; i++) {
+  for (var i = 0; i <= length.length; i++) {
     var randomLength = randomFunction[Math.floor(Math.random() * randomFunction.length)]
     passsword = password + randomLength;
   }
-console.log(randomLength);
+console.log(password);
 
 
   return password
