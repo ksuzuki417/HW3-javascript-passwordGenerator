@@ -1,32 +1,37 @@
 //set of functions
 var randomFunction = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  character: getRandomCharacter,
+  lower : getRandomLower,
+  upper : getRandomUpper,
+  number : getRandomNumber,
+  character : getRandomCharacter,
 }
+
 
 //generate random lowercase
-function getRandomLower(){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+  function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+
+  console.log(getRandomLower());
 
 //generate random uppercase
-function getRandomUpper(){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+  function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    }
+  console.log(getRandomUpper());
 
 //generate random number
-function getRandomNumber(){
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
+  function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    }
+  console.log(getRandomNumber());
 
 //generate random character
-var character = "!@#$%^&*"
-function getRandomCharacter(){
-  return character[Math.floor(Math.random() * character.length)];
-}
-
+  var character = "!@#$%^&*"
+  function getRandomCharacter() {
+    return character[Math.floor(Math.random() * character.length)];
+  }
+  console.log(getRandomCharacter());
 
 //set number of characters
 
@@ -38,7 +43,11 @@ function generatePassword(lower, upper, number, character){
     alert ("You want " + promptNumbers + " letters")
   }
   else { alert ("Please choose between 8 and 128");
+  return
   }
+
+  console.log(promptNumbers);
+
 var confirmLowercase = confirm("Would you like lowercase?")
   if (confirmLowercase === true){
     alert("You want lowercase");
@@ -67,23 +76,23 @@ var confirmSpecial = confirm("Do you want special characters (!@#$%^&*)?")
 
   password = "";
   if (confirmLowercase === true) {
-    password += lower
+    password.concat(lower)
   }
   if (confirmUppercase === true) {
-    password += upper
+    password.concat(upper)
   }
   if(confirmNumber === true) {
-    password += number
+    password.concat(number)
   }
   if (confirmSpecial === true) {
-    password += character
+    password.concat(character)
   }
 
-  for (var i = 1; i <= promptNumbers; i++) {
+  for (var i = 0; i <= promptNumbers; i++) {
     var randomLength = randomFunction[Math.floor(Math.random() * randomFunction.length)]
     passsword = password + randomLength;
   }
-console.log(randomLength)
+console.log(randomLength);
 
 
   return password
